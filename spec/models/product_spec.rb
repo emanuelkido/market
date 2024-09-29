@@ -22,4 +22,14 @@ RSpec.describe Product do
             expect(result).to include(maca, banana, abacate)
         end
     end
+
+    context "#as_json" do
+        it "Returns a json from object" do
+            params = {name: 'Banana', price: 2.50}
+            banana = Product.new(**params)
+            result = banana.as_json
+            expect(result).to eq(params)
+        end
+    end
+
 end 
